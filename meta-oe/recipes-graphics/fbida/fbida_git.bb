@@ -10,7 +10,10 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=8ca43cbc842c2336e835926c2166c28b"
 
 DEPENDS = "virtual/libiconv jpeg fontconfig freetype libexif curl"
 
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
+
 SRC_URI = "git://git.kraxel.org/fbida"
+SRC_URI += "file://no-usr-local.diff"
 SRCREV = "6aa5563cb3c8864ad15cf83eb6fca3b773da1099"
 PV = "2.09+git${SRCPV}"
 S = "${WORKDIR}/git"
