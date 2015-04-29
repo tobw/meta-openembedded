@@ -3,8 +3,6 @@ require samba-basic.inc
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://../COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-PR = "r8"
-
 SRC_URI += "\
     file://config-h.patch \
     file://documentation.patch;patchdir=.. \
@@ -31,8 +29,8 @@ SRC_URI += "\
     file://configure-disable-core_pattern-cross-check.patch;patchdir=.. \
     file://configure-libunwind.patch;patchdir=.. \
 "
-SRC_URI[md5sum] = "fbb245863eeef2fffe172df779a217be"
-SRC_URI[sha256sum] = "4f5a171a8d902c6b4f822ed875c51eb8339196d9ccf0ecd7f6521c966b3514de"
+SRC_URI[md5sum] = "76da2fa64edd94a0188531e7ecb27c4e"
+SRC_URI[sha256sum] = "8f2c8a7f2bd89b0dfd228ed917815852f7c625b2bc0936304ac3ed63aaf83751"
 
 S = "${WORKDIR}/samba-${PV}/source3"
 
