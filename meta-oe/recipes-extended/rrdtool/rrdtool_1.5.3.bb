@@ -2,17 +2,14 @@ SUMMARY = "High performance data logging and graphing system for time series dat
 HOMEPAGE = "http://oss.oetiker.ch/rrdtool/"
 
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://COPYING;md5=44fee82a1d2ed0676cf35478283e0aa0"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=44fee82a1d2ed0676cf35478283e0aa0"
 
 DEPENDS = "libpng zlib cairo pango glib-2.0 libxml2 groff-native"
 
-SRCREV = "1850e00a17e25e93c39e608f4e2da50f29c5c712"
-PV = "1.4.8"
+SRCREV = "d7bba344e6034c4a0db831c9a83957a6a1758102"
+PV = "1.5.3"
 
-SRC_URI = "\
-    git://github.com/oetiker/rrdtool-1.x.git;branch=1.4 \
-    file://remove_hardcoded_xml_include.patch \
-    file://0001-removing-testing-leftovers.patch \
+SRC_URI = "git://github.com/oetiker/rrdtool-1.x.git;branch=1.5 \
 "
 
 S = "${WORKDIR}/git"
@@ -119,6 +116,8 @@ DESCRIPTION_${PN}-python = \
 "The ${PN}-python package includes RRDtool bindings for python."
 FILES_${PN}-python = "${libdir}/python${PYTHON_BASEVERSION}/site-packages/*"
 RDEPENDS_${PN}-python = "python"
+# ERROR: QA Issue: rrdtool-python: /work/cortexa9hf-vfp-neon-poky-linux-gnueabi/rrdtool/1.5.3-r0/packages-split/rrdtool-python/usr/lib/python2.7/site-packages/rrdtoolmodule.so contains probably-redundant RPATH /usr/lib
+INSANE_SKIP_${PN}-python += "useless-rpaths"
 
 FILES_${PN}-dbg += "${libdir}/perl/vendor_perl/*/auto/RRDs/.debug \
     ${libdir}/python${PYTHON_BASEVERSION}/site-packages/.debug"
