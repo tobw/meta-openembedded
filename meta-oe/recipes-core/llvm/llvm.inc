@@ -20,19 +20,15 @@
 DESCRIPTION = "The Low Level Virtual Machine"
 HOMEPAGE = "http://llvm.org"
 
-# 3-clause BSD-like
-# University of Illinois/NCSA Open Source License
-LICENSE = "NCSA"
-LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=d0a3ef0d3e0e8f5cf59e5ffc273ab1f8"
-
 DEPENDS = "libffi libxml2-native llvm-common"
 
 inherit perlnative pythonnative autotools
 
 LLVM_RELEASE = "${PV}"
 LLVM_DIR = "llvm${LLVM_RELEASE}"
+LLVM_SRC_EXT ?= "xz"
 
-SRC_URI = "http://llvm.org/releases/${PV}/llvm-${PV}.src.tar.gz"
+SRC_URI = "http://llvm.org/releases/${PV}/llvm-${PV}.src.tar.${LLVM_SRC_EXT}"
 S = "${WORKDIR}/llvm-${PV}.src"
 
 LLVM_BUILD_DIR = "${WORKDIR}/llvm-${PV}.build"
@@ -42,6 +38,7 @@ EXTRA_OECONF += "--disable-assertions \
                  --enable-debug-runtime \
                  --disable-expensive-checks \
                  --enable-bindings=none \
+                 --enable-jit \
                  --enable-keep-symbols \
                  --enable-libffi \
                  --enable-optimized \
