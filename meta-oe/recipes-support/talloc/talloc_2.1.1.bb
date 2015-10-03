@@ -20,12 +20,9 @@ EXTRA_OECONF += "--disable-rpath \
                  --with-libiconv=${STAGING_DIR_HOST}${prefix}\
                 "
 
-PACKAGES += "libtalloc libtalloc-dbg libtalloc-dev pytalloc pytalloc-dbg pytalloc-dev"
+PACKAGES = "libtalloc libtalloc-dbg libtalloc-dev pytalloc pytalloc-dbg pytalloc-dev"
 
 #ALLOW_EMPTY_${PN} = "1"
-FILES_${PN} = ""
-FILES_${PN}-dev = ""
-FILES_${PN}-dbg = ""
 
 FILES_libtalloc = "${libdir}/libtalloc.so.2 \
                    ${libdir}/libtalloc.so.2.1.1"
